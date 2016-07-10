@@ -8,7 +8,7 @@
 
 # SUDO!
 
-#Saeed  ([Telegram](https://telegram.me/ir_telegram_developer))
+#Saeed Zareen  ([Telegram](https://telegram.me/ir_telegram_developer))
 
 ### MY Telegram channels:
 
