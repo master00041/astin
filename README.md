@@ -15,7 +15,7 @@
 
 * **sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev libjansson* libpython-dev make unzip git redis-server g++ autoconf -y --force-yes**
 
-* **git clone https://github.com/telesparta/Spartacus_TG.git -b supergroups**
+* **git clone Https://github.com/spartacusteam/spartacus.git -b supergroups**
 
 * **cd Spartacus_TG**
 
