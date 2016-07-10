@@ -1,8 +1,31 @@
-# [TeleSeed](https://telegram.me/TeleSeed)
+# [SpartacusTG](https://telegram.me/Spartacus_tg)
 
-[![https://gitter.im/SEEDTEAM/TeleSeed](https://badges.gitter.im/SEEDTEAM/TeleSeed.svg)](https://gitter.im/SEEDTEAM/TeleSeed?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-**An advanced and powerful administration bot based on [yagop/telegram-bot](https://github.com/yagop/telegram-bot) licensed under the [GNU General Public License](https://github.com/SEEDTEAM/TeleSeed/blob/master/LICENSE)**.
+**An advanced and powerful administration bot based on ** Seed ** licensed under the [GNU General Public License](https://github.com/SEEDTEAM/TeleSeed/blob/master/LICENSE)**.
+
+* * *
+
+#اموزش نصب
+کد های زیر را به ترتیب وارد نمایید
+* **sudo apt-get update** 
+
+* **sudo apt-get upgrade**
+
+* **sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev make unzip git redis-server autoconf g++ libjansson-dev libpython-dev expat libexpat1-dev**
+
+* **sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev libjansson* libpython-dev make unzip git redis-server g++ autoconf -y --force-yes**
+
+* **git clone https://github.com/telesparta/Spartacus_TG.git -b supergroups**
+
+* **cd Spartacus_TG**
+
+* **./launch.sh install**
+
+* **./launch.sh**
+
+* **شماره را وارد نموده و ربات شما ران میباشد**
+
+* * *
 # Features
 
 * **A powerful antispam system with custom sensitivity for each group**
@@ -26,7 +49,7 @@
 * * *
 
 ## Commands
-TeleSeed has several commands that are only usable at certain ranks.
+Spartacus has several commands that are only usable at certain ranks.
 
 
 ## General Commands
@@ -236,8 +259,8 @@ sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-d
 
 # Let's install the bot.
 cd $HOME
-git clone https://github.com/SEEDTEAM/TeleSeed.git -b supergroups
-cd TeleSeed
+git clone https://github.com/telesparta/Spartacus_TG.git -b supergroups
+cd Spartacus_TG
 chmod +x launch.sh
 ./launch.sh install
 ./launch.sh # Enter a phone number & confirmation code.
@@ -246,7 +269,7 @@ chmod +x launch.sh
 To install everything in one command (useful for VPS deployment) on Debian-based distros, use:
 ```sh
 #https://github.com/yagop/telegram-bot/wiki/Installation
-sudo apt-get update; sudo apt-get upgrade -y --force-yes; sudo apt-get dist-upgrade -y --force-yes; sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev libjansson* libpython-dev make unzip git redis-server g++ autoconf -y --force-yes && git clone https://github.com/SEEDTEAM/TeleSeed.git -b supergroups && cd TeleSeed && chmod +x launch.sh && ./launch.sh install && ./launch.sh
+sudo apt-get update; sudo apt-get upgrade -y --force-yes; sudo apt-get dist-upgrade -y --force-yes; sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev libjansson* libpython-dev make unzip git redis-server g++ autoconf -y --force-yes && git clone https://github.com/telesparta/Spartacus_TG.git -b supergroups && cd Spartacus_TG && chmod +x launch.sh && ./launch.sh install && ./launch.sh
 ```
 
 * * *
@@ -283,38 +306,19 @@ Create a realm using the `!createrealm` command.
 
 # Support and development
 
-Check out this [tutorial by Telegram Geeks](http://telegramgeeks.com/2016/01/teleseed-tutorial/) for further assistance with setup and installation.
 
-**Do not contact us** in private for support.
-Join our bot development group by sending `/join 1047524697` to [@TeleSeed](https://telegram.me/TeleSeed)
+**contact me in private for support**
+
+[IR_Telegram_Developer](https://telegram.me/ir_telegram_developer)
 
 # Special thanks to
-[@seyedan25](https://telegram.me/seyedan25)
+[seyedan25](https://telegram.me/seyedan25)
 
-For managing [@teleseed](https://telegram.me/TeleSeed) on Telegram.
-
-[@Vamptacus](https://telegram.me/Vamptacus)
-
-For graphic designs.
-
-[topkecleon](https://github.com/topkecleon)
-
-[Juan Potato](https://github.com/JuanPotato)
 
 * * *
 
-# Our team!
-
-[Alphonse](https://github.com/hmon) ([Telegram](https://telegram.me/iwals))
-
-[I M /-\ N](https://github.com/imandaneshi) ([Telegram](https://telegram.me/imandaneshi))
-
-[Siyanew](https://github.com/Siyanew) ([Telegram](https://telegram.me/Siyanew))
-
-[Rondoozle](https://github.com/Rondoozle) ([Telegram](https://telegram.me/POTUS))
-
 ### Our Telegram channels:
 
-English: [@SeedChannel](https://telegram.me/seedchannel)
+Support: [@SpartaSoft](https://telegram.me/SpartaSoft)
 
-Persian: [@IranSeed](https://telegram.me/iranseed)
+Helping: [@Spartacus_Team](https://telegram.me/Spartacus_team)
