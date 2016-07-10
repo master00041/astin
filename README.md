@@ -14,4 +14,4 @@
 
 Support: [@SpartaSoft](https://telegram.me/spartasoft)
 
-Helper: [@IranSeed](https://telegram.me/spartacus_team)
+Helper: [@Spartacus_Team](https://telegram.me/spartacus_team)
