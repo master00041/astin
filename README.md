@@ -3,8 +3,7 @@
 
 # مسیر وارد شده اشتباه میباشد
 
-* **لطفا از آدرس زیر وارد گیت شوید : **
-
+* **لطفا از آدرس زیر وارد گیت شوید :**
 
 * **https://github.com/spartacusteam/spartacus/tree/supergroups**
 
