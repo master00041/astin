@@ -1,5 +1,5 @@
 do
--- Will leave the group if be added
+-- Will leave the group if be add
 local function run(msg, matches)
 local bot_id = our_id 
 local receiver = get_receiver(msg)
