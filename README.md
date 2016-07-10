@@ -29,7 +29,7 @@
 
 * **برای دریافت خروجی مطبوع از ربات باید تی جی اپدیت شده را از کانال آموزشی بنده دریافت نمایید**
 
-* **آموزش در کانال : Https://Telegram.me/Spartacus_Team
+* **آموزش در کانال : Https://Telegram.me/Spartacus_Team**
 
 * * *
 # Features
