@@ -1,4 +1,4 @@
-﻿--Begin supergrpup.lua
+--Begin supergrpup.lua
 --Check members #Add supergroup
 local function check_member_super(cb_extra, success, result)
   local receiver = cb_extra.receiver
@@ -23,11 +23,22 @@ local function check_member_super(cb_extra, success, result)
           flood = 'yes',
 		  lock_spam = 'yes',
 		  lock_sticker = 'no',
+		  lock_emoji = 'no',
+		  lock_badword = 'no',
+		  lock_tag = 'no',
+		  lock_reply = 'no',
+		  lock_fwd = 'no',
+		  lock_ads = 'no',
+		  lock_english = 'no',
+		  lock_media = 'no',
+		  lock_photo = 'no',
+		  lock_video = 'no',
+		  lock_audio = 'no',
 		  member = 'no',
 		  public = 'no',
 		  lock_rtl = 'no',
 		  lock_tgservice = 'yes',
-		  lock_contacts = 'no',
+		  lock_contact = 'no',
 		  strict = 'no'
         }
       }
@@ -210,7 +221,369 @@ local function unlock_group_links(msg, data, target)
     return 'Link posting has been unlocked'
   end
 end
+-----------------------------------------------------------------------
+local function lock_group_ads(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_ads_lock = data[tostring(target)]['settings']['lock_ads']
+  if group_ads_lock == 'yes' then
+    return 'Ads is already locked'
+  else
+    data[tostring(target)]['settings']['lock_ads'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Ads has been locked'
+  end
+end
 
+local function unlock_group_ads(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_ads_lock = data[tostring(target)]['settings']['lock_ads']
+  if group_ads_lock == 'no' then
+    return 'Ads is not locked'
+  else
+    data[tostring(target)]['settings']['lock_ads'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Ads has been unlocked'
+  end
+end
+--------------------------------------------------------------------------
+local function lock_group_photo(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_photo_lock = data[tostring(target)]['settings']['lock_photo']
+  if group_photo_lock == 'yes' then
+    return 'Photo posting is already locked'
+  else
+    data[tostring(target)]['settings']['lock_photo'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Photo posting has been locked'
+  end
+end
+
+local function unlock_group_photo(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_photo_lock = data[tostring(target)]['settings']['lock_photo']
+  if group_photo_lock == 'no' then
+    return 'Photo posting is not locked'
+  else
+    data[tostring(target)]['settings']['lock_photo'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Photo posting has been unlocked'
+  end
+end
+------------------------------------------------------------------------
+local function lock_group_reply(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_reply_lock = data[tostring(target)]['settings']['lock_reply']
+  if group_reply_lock == 'yes' then
+    return 'reply is already locked'
+  else
+    data[tostring(target)]['settings']['lock_reply'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'reply has been locked'
+  end
+end
+
+local function unlock_group_reply(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_reply_lock = data[tostring(target)]['settings']['lock_reply']
+  if group_reply_lock == 'no' then
+    return 'reply is not locked'
+  else
+    data[tostring(target)]['settings']['lock_reply'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'reply has been unlocked'
+  end
+end
+------------------------------------------------------------------------
+local function lock_group_emoji(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_emoji_lock = data[tostring(target)]['settings']['lock_emoji']
+  if group_emoji_lock == 'yes' then
+    return 'emoji posting is already locked'
+  else
+    data[tostring(target)]['settings']['lock_emoji'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'emoji posting has been locked'
+  end
+end
+
+local function unlock_group_emoji(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_emoji_lock = data[tostring(target)]['settings']['lock_emoji']
+  if group_emoji_lock == 'no' then
+    return 'emoji posting is not locked'
+  else
+    data[tostring(target)]['settings']['lock_emoji'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'emoji posting has been unlocked'
+  end
+end
+------------------------------------------------------------------------
+local function lock_group_badword(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_badword_lock = data[tostring(target)]['settings']['lock_badword']
+  if group_badword_lock == 'yes' then
+    return 'badword is already locked'
+  else
+    data[tostring(target)]['settings']['lock_badword'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'badword has been locked'
+  end
+end
+
+local function unlock_group_badword(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_badword_lock = data[tostring(target)]['settings']['lock_badword']
+  if group_badword_lock == 'no' then
+    return 'badword is not locked'
+  else
+    data[tostring(target)]['settings']['lock_badword'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'badword has been unlocked'
+  end
+end
+------------------------------------------------------------------------
+local function lock_group_video(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_video_lock = data[tostring(target)]['settings']['lock_video']
+  if group_video_lock == 'yes' then
+    return 'Video posting is already locked'
+  else
+    data[tostring(target)]['settings']['lock_video'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Video posting has been locked'
+  end
+end
+
+local function unlock_group_video(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_video_lock = data[tostring(target)]['settings']['lock_video']
+  if group_video_lock == 'no' then
+    return 'Video posting is not locked'
+  else
+    data[tostring(target)]['settings']['lock_video'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Video posting has been unlocked'
+  end
+end
+-------------------------------------------------------------------------
+local function lock_group_audio(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_audio_lock = data[tostring(target)]['settings']['lock_audio']
+  if group_audio_lock == 'yes' then
+    return 'Audio posting is already locked'
+  else
+    data[tostring(target)]['settings']['lock_audio'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Audio posting has been locked'
+  end
+end
+
+local function unlock_group_audio(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_audio_lock = data[tostring(target)]['settings']['lock_audio']
+  if group_audio_lock == 'no' then
+    return 'Audio posting is not locked'
+  else
+    data[tostring(target)]['settings']['lock_audio'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Audio posting has been unlocked'
+  end
+end
+-------------------------------------------------------------------------
+local function lock_group_contact(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_contact_lock = data[tostring(target)]['settings']['lock_contact']
+  if group_contact_lock == 'yes' then
+    return 'Contact posting is already locked'
+  else
+    data[tostring(target)]['settings']['lock_contact'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Contact posting has been locked'
+  end
+end
+
+local function unlock_group_contact(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_contact_lock = data[tostring(target)]['settings']['lock_contact']
+  if group_contact_lock == 'no' then
+    return 'Contact posting is not locked'
+  else
+    data[tostring(target)]['settings']['lock_contact'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Contact posting has been unlocked'
+  end
+end
+-------------------------------------------------------------------------
+local function lock_group_media(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_media_lock = data[tostring(target)]['settings']['lock_media']
+  if group_media_lock == 'yes' then
+    return 'Media posting is already locked'
+  else
+    data[tostring(target)]['settings']['lock_media'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Media posting has been locked'
+  end
+end
+
+local function unlock_group_media(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_media_lock = data[tostring(target)]['settings']['lock_media']
+  if group_media_lock == 'no' then
+    return 'Media posting is not locked'
+  else
+    data[tostring(target)]['settings']['lock_media'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Media posting has been unlocked'
+  end
+end
+------------------------------------------
+local function lock_group_tag(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_tag_lock = data[tostring(target)]['settings']['lock_tag']
+  if group_tag_lock == 'yes' then
+    return 'Tag is already locked'
+  else
+    data[tostring(target)]['settings']['lock_tag'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Tag has been locked'
+  end
+end
+
+local function unlock_group_tag(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_tag_lock = data[tostring(target)]['settings']['lock_tag']
+  if group_tag_lock == 'no' then
+    return 'Tag is not locked'
+  else
+    data[tostring(target)]['settings']['lock_tag'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Tag has been unlocked'
+  end
+end
+-----------------------------------------------------
+local function lock_group_sticker(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_sticker_lock = data[tostring(target)]['settings']['lock_sticker']
+  if group_link_lock == 'yes' then
+    return 'Sticker posting is already locked'
+  else
+    data[tostring(target)]['settings']['lock_sticker'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Sticker posting has been locked'
+  end
+end
+
+local function unlock_group_sticker(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_sticker_lock = data[tostring(target)]['settings']['lock_sticker']
+  if group_sticker_lock == 'no' then
+    return 'Sticker posting is not locked'
+  else
+    data[tostring(target)]['settings']['lock_sticker'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Sticker posting has been unlocked'
+  end
+end
+-------------------------------------------------------------------
+local function lock_group_fwd(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_fwd_lock = data[tostring(target)]['settings']['lock_fwd']
+  if group_fwd_lock == 'yes' then
+    return 'Forward is already locked'
+  else
+    data[tostring(target)]['settings']['lock_fwd'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'Forward has been locked'
+  end
+end
+
+local function unlock_group_fwd(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_fwd_lock = data[tostring(target)]['settings']['lock_fwd']
+  if group_fwd_lock == 'no' then
+    return 'Forward is not locked'
+  else
+    data[tostring(target)]['settings']['lock_fwd'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'Forward has been unlocked'
+  end
+end
+local function lock_group_english(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_link_english = data[tostring(target)]['settings']['lock_english']
+  if group_english_lock == 'yes' then
+    return 'English is already locked'
+  else
+    data[tostring(target)]['settings']['lock_english'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'English has been locked'
+  end
+end
+
+local function unlock_group_english(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_english_lock = data[tostring(target)]['settings']['lock_english']
+  if group_english_lock == 'no' then
+    return 'English is not locked'
+  else
+    data[tostring(target)]['settings']['lock_english'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'English has been unlocked'
+  end
+end
 local function lock_group_spam(msg, data, target)
   if not is_momod(msg) then
     return
@@ -564,8 +937,73 @@ end
 			data[tostring(target)]['settings']['lock_member'] = 'no'
 		end
 	end
+	if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_fwd'] then
+			data[tostring(target)]['settings']['lock_fwd'] = 'no'
+		end
+	end
+	if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_english'] then
+			data[tostring(target)]['settings']['lock_english'] = 'no'
+		end
+	end
+	if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_media'] then
+			data[tostring(target)]['settings']['lock_media'] = 'no'
+		end
+	end
+	if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_tag'] then
+			data[tostring(target)]['settings']['lock_tag'] = 'no'
+		end
+	end
+	if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_sticker'] then
+			data[tostring(target)]['settings']['lock_sticker'] = 'no'
+		end
+	end
+	if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_photo'] then
+			data[tostring(target)]['settings']['lock_photo'] = 'no'
+		end
+	end
+	if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_video'] then
+			data[tostring(target)]['settings']['lock_video'] = 'no'
+		end
+	end
+	if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_reply'] then
+			data[tostring(target)]['settings']['lock_reply'] = 'no'
+		end
+	end
+	if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_audio'] then
+			data[tostring(target)]['settings']['lock_audio'] = 'no'
+		end
+	end
+	if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_badword'] then
+			data[tostring(target)]['settings']['lock_badword'] = 'no'
+		end
+	end
+	if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_contact'] then
+			data[tostring(target)]['settings']['lock_contact'] = 'no'
+		end
+	end
+	if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_emoji'] then
+			data[tostring(target)]['settings']['lock_emoji'] = 'no'
+		end
+	end
+	if data[tostring(target)]['settings'] then
+		if not data[tostring(target)]['settings']['lock_ads'] then
+			data[tostring(target)]['settings']['lock_ads'] = 'no'
+		end
+	end
   local settings = data[tostring(target)]['settings']
-  local text = "SuperGroup settings:\nLock links : "..settings.lock_link.."\nLock flood: "..settings.flood.."\nFlood sensitivity : "..NUM_MSG_MAX.."\nLock spam: "..settings.lock_spam.."\nLock Arabic: "..settings.lock_arabic.."\nLock Member: "..settings.lock_member.."\nLock RTL: "..settings.lock_rtl.."\nLock Tgservice : "..settings.lock_tgservice.."\nLock sticker: "..settings.lock_sticker.."\nPublic: "..settings.public.."\nStrict settings: "..settings.strict
+  local text = "⚙ SuperGroup Settings For:\n🔶#SuperGroup ID :[ "..msg.to.id.." ]\n🔷#Supergroup Name :[ "..msg.to.title.." ]\n🌐#Links : "..settings.lock_link.."\n💀#Flood : "..settings.flood.."\n🌵#Sticker : "..settings.lock_sticker.."\nⓂ️#Tag : "..settings.lock_tag.."\n😶#emoji : "..settings.lock_emoji.."\n🌵#Reply : "..settings.lock_reply.."\n▪️#Ads : "..settings.lock_ads.."\n🌵#Badword : "..settings.lock_badword.."\n📲#Contact : "..settings.lock_contact.."\n🆗#English : "..settings.lock_english.."\n‼️#Spam : "..settings.lock_spam.."\n♻️#Fwd(Forward) : "..settings.lock_fwd.."\n🗣#Arabic : "..settings.lock_arabic.."\n👥#Member : "..settings.lock_member.."\n👾#RTL : "..settings.lock_rtl.."\n________💠More💠_________\n❌#Media : "..settings.lock_media.."\n🖼#Photo : "..settings.lock_photo.."\n🎬#Video : "..settings.lock_video.."\n🎙#Audio : "..settings.lock_audio.."\n________👑Other👑_________\n🎭#Tgservice : "..settings.lock_tgservice.."\n🔶#Flood_Sensitivity : "..NUM_MSG_MAX.."\n🔱#Strict_Settings : "..settings.strict.."\n🚩#Public : "..settings.public
   return text
 end
 
@@ -1319,7 +1757,7 @@ local function run(msg, matches)
 				return "Create a link using /newlink first!\n\nOr if I am not creator use /setlink to set your link"
 			end
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
-			return "Group link:\n"..group_link
+			return "💎#Group_Link:\n"..group_link
 		end
 
 		if matches[1] == "invite" and is_sudo(msg) then
@@ -1658,9 +2096,61 @@ local function run(msg, matches)
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked spam ")
 				return lock_group_spam(msg, data, target)
 			end
+			if matches[2] == 'fwd' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked fwd ")
+				return lock_group_fwd(msg, data, target)
+			end
+			if matches[2] == 'photo' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked photo ")
+				return lock_group_photo(msg, data, target)
+			end
+			if matches[2] == 'video' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked video ")
+				return lock_group_video(msg, data, target)
+			end
+			if matches[2] == 'badword' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked badword ")
+				return lock_group_badword(msg, data, target)
+			end
+			if matches[2] == 'audio' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked audio ")
+				return lock_group_audio(msg, data, target)
+			end
+			if matches[2] == 'contact' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked contact ")
+				return lock_group_contact(msg, data, target)
+			end
+			if matches[2] == 'ads' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked ads ")
+				return lock_group_ads(msg, data, target)
+			end
+			if matches[2] == 'emoji' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked emoji ")
+				return lock_group_emoji(msg, data, target)
+			end
+			if matches[2] == 'reply' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked reply ")
+				return lock_group_reply(msg, data, target)
+			end
+			if matches[2] == 'sticker' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked sticker ")
+				return lock_group_sticker(msg, data, target)
+			end
+			if matches[2] == 'tag' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked tag ")
+				return lock_group_tag(msg, data, target)
+			end
+			if matches[2] == 'media' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked media ")
+				return lock_group_media(msg, data, target)
+			end
 			if matches[2] == 'flood' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked flood ")
 				return lock_group_flood(msg, data, target)
+			end
+			if matches[2] == 'english' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked english ")
+				return lock_group_english(msg, data, target)
 			end
 			if matches[2] == 'arabic' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked arabic ")
@@ -1701,6 +2191,58 @@ local function run(msg, matches)
 			if matches[2] == 'spam' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked spam")
 				return unlock_group_spam(msg, data, target)
+			end
+			if matches[2] == 'fwd' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked fwd")
+				return unlock_group_fwd(msg, data, target)
+			end
+			if matches[2] == 'photo' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked photo")
+				return unlock_group_photo(msg, data, target)
+			end
+			if matches[2] == 'video' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked video")
+				return unlock_group_video(msg, data, target)
+			end
+			if matches[2] == 'emoji' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked emoji")
+				return unlock_group_emoji(msg, data, target)
+			end
+			if matches[2] == 'ads' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked ads")
+				return unlock_group_ads(msg, data, target)
+			end
+			if matches[2] == 'reply' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked reply")
+				return unlock_group_reply(msg, data, target)
+			end
+			if matches[2] == 'audio' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked audio")
+				return unlock_group_audio(msg, data, target)
+			end
+			if matches[2] == 'contact' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked contact")
+				return unlock_group_contact(msg, data, target)
+			end
+			if matches[2] == 'badword' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked badword")
+				return unlock_group_badword(msg, data, target)
+			end
+			if matches[2] == 'sticker' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked sticker")
+				return unlock_group_sticker(msg, data, target)
+			end
+			if matches[2] == 'tag' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked tag")
+				return unlock_group_tag(msg, data, target)
+			end
+			if matches[2] == 'media' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked media")
+				return unlock_group_media(msg, data, target)
+			end
+			if matches[2] == 'english' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked english")
+				return unlock_group_english(msg, data, target)
 			end
 			if matches[2] == 'flood' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked flood")
@@ -2031,59 +2573,59 @@ end
 
 return {
   patterns = {
-	"^[#!/]([Aa]dd)$",
-	"^[#!/]([Rr]em)$",
-	"^[#!/]([Mm]ove) (.*)$",
-	"^[#!/]([Ii]nfo)$",
-	"^[#!/]([Aa]dmins)$",
-	"^[#!/]([Oo]wner)$",
-	"^[#!/]([Mm]odlist)$",
-	"^[#!/]([Bb]ots)$",
-	"^[#!/]([Ww]ho)$",
-	"^[#!/]([Kk]icked)$",
-    "^[#!/]([Bb]lock) (.*)",
-	"^[#!/]([Bb]lock)",
-	"^[#!/]([Tt]osuper)$",
-	"^[#!/]([Ii][Dd])$",
-	"^[#!/]([Ii][Dd]) (.*)$",
-	"^[#!/]([Kk]ickme)$",
-	"^[#!/]([Kk]ick) (.*)$",
-	"^[#!/]([Nn]ewlink)$",
-	"^[#!/]([Ss]etlink)$",
-	"^[#!/]([Ll]ink)$",
-	"^[#!/]([Rr]es) (.*)$",
-	"^[#!/]([Ss]etadmin) (.*)$",
-	"^[#!/]([Ss]etadmin)",
-	"^[#!/]([Dd]emoteadmin) (.*)$",
-	"^[#!/]([Dd]emoteadmin)",
-	"^[#!/]([Ss]etowner) (.*)$",
-	"^[#!/]([Ss]etowner)$",
-	"^[#!/]([Pp]romote) (.*)$",
-	"^[#!/]([Pp]romote)",
-	"^[#!/]([Dd]emote) (.*)$",
-	"^[#!/]([Dd]emote)",
-	"^[#!/]([Ss]etname) (.*)$",
-	"^[#!/]([Ss]etabout) (.*)$",
-	"^[#!/]([Ss]etrules) (.*)$",
-	"^[#!/]([Ss]etphoto)$",
-	"^[#!/]([Ss]etusername) (.*)$",
-	"^[#!/]([Dd]el)$",
-	"^[#!/]([Ll]ock) (.*)$",
-	"^[#!/]([Uu]nlock) (.*)$",
-	"^[#!/]([Mm]ute) ([^%s]+)$",
-	"^[#!/]([Uu]nmute) ([^%s]+)$",
-	"^[#!/]([Mm]uteuser)$",
-	"^[#!/]([Mm]uteuser) (.*)$",
-	"^[#!/]([Pp]ublic) (.*)$",
-	"^[#!/]([Ss]ettings)$",
-	"^[#!/]([Rr]ules)$",
-	"^[#!/]([Ss]etflood) (%d+)$",
-	"^[#!/]([Cc]lean) (.*)$",
-	"^[#!/]([Hh]elp)$",
-	"^[#!/]([Mm]uteslist)$",
-	"^[#!/]([Mm]utelist)$",
-    "[#!/](mp) (.*)",
-	"[#!/](md) (.*)",
+	"^([Aa]dd)$",
+	"^([Rr]em)$",
+	"^([Mm]ove) (.*)$",
+	"^([Ii]nfo)$",
+	"^([Aa]dmins)$",
+	"^([Oo]wner)$",
+	"^([Mm]odlist)$",
+	"^([Bb]ots)$",
+	"^([Ww]ho)$",
+	"^([Kk]icked)$",
+    "^([Bb]lock) (.*)",
+	"^([Bb]lock)",
+	"^([Tt]osuper)$",
+	--"^([Ii][Dd])$",
+	"^([Ii][Dd]) (.*)$",
+	"^([Kk]ickme)$",
+	"^([Kk]ick) (.*)$",
+	"^([Nn]ewlink)$",
+	"^([Ss]etlink)$",
+	"^([Ll]ink)$",
+	"^([Rr]es) (.*)$",
+	"^([Ss]etadmin) (.*)$",
+	"^([Ss]etadmin)",
+	"^([Dd]emoteadmin) (.*)$",
+	"^([Dd]emoteadmin)",
+	"^([Ss]etowner) (.*)$",
+	"^([Ss]etowner)$",
+	"^([Pp]romote) (.*)$",
+	"^([Pp]romote)",
+	"^([Dd]emote) (.*)$",
+	"^([Dd]emote)",
+	"^([Ss]etname) (.*)$",
+	"^([Ss]etabout) (.*)$",
+	"^([Ss]etrules) (.*)$",
+	"^([Ss]etphoto)$",
+	"^([Ss]etusername) (.*)$",
+	"^([Dd]el)$",
+	"^([Ll]ock) (.*)$",
+	"^([Uu]nlock) (.*)$",
+	"^([Mm]ute) ([^%s]+)$",
+	"^([Uu]nmute) ([^%s]+)$",
+	"^([Mm]uteuser)$",
+	"^([Mm]uteuser) (.*)$",
+	"^([Pp]ublic) (.*)$",
+	"^([Ss]ettings)$",
+	"^([Rr]ules)$",
+	"^([Ss]etflood) (%d+)$",
+	"^([Cc]lean) (.*)$",
+	--"^([Hh]elp)$",
+	"^([Mm]uteslist)$",
+	"^([Mm]utelist)$",
+    "(mp) (.*)",
+	"(md) (.*)",
     "^(https://telegram.me/joinchat/%S+)$",
 	"msg.to.peer_id",
 	"%[(document)%]",
