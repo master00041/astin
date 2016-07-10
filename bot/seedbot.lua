@@ -221,6 +221,7 @@ function create_config( )
     "stats",
     "anti_spam",
     "owners",
+    "plugins",
     "arabic_lock",
     "set",
     "get",
@@ -234,30 +235,13 @@ function create_config( )
     },
     sudo_users = {110626080,103649648,111020322,0,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Teleseed v4
-An advanced administration bot based on TG-CLI written in Lua
-
-https://github.com/SEEDTEAM/TeleSeed
-
-Admins
-@iwals [Founder]
-@imandaneshi [Developer]
-@POTUS [Developer]
-@seyedan25 [Manager]
-@aRandomStranger [Admin]
-
-Special thanks to
-awkward_potato
-Siyanew
-topkecleon
-Vamptacus
-
-Our channels
-@teleseedch [English]
-@iranseed [persian]
-
-Our website 
-http://teleseed.seedteam.org/
+    about_text = [[Spartacus Bot V2.3 Supergroups
+    
+    An advanced Bot Based On TG-CLI Written in Lua
+    
+    Developer : @IR_Telegram_Developer
+    Channel : https://Telegram.me/SpartaSoft
+    Github : https://github.com/spartacusteam/spartacus/tree/supergroups
 ]],
     help_text_realm = [[
 Realm Commands:
