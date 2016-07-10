@@ -1,4 +1,4 @@
-antiarabic = {}-- An empty table for solving multiple kicking problem
+antiarabic = {}-- An empty table for solving multiple kicking problems
 
 do
 local function run(msg, matches)
