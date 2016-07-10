@@ -1,3 +1,4 @@
+--start
 do
 
 local function get_message_callback (extra , success, result)
